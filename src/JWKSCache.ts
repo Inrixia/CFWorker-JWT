@@ -1,5 +1,4 @@
-import { promisify } from "util";
-const sleep = promisify(setTimeout);
+const sleep = (timeout: number) => new Promise((res) => setTimeout(res, timeout));
 
 type Jwk = {
 	alg: "RS256";
