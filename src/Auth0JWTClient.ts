@@ -1,4 +1,4 @@
-import { JWTClient, type RawJwt } from "./JWTClient";
+import { JWTClient, RawJwt } from "./JWTClient";
 
 import { hash } from "./hash";
 

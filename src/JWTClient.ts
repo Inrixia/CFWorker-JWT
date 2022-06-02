@@ -22,7 +22,7 @@ export class JWTClient {
 	 * We are just checking that the signature is valid, but you can do more that.
 	 * For example, check that the payload has the expected entries or if the signature is expired..
 	 */
-	verifyAndDecode = async (request: Request): Promise<RawJwt> => {
+	async verifyAndDecode(request: Request): Promise<RawJwt> {
 		const authHeader = request.headers.get("Authorization");
 		if (!authHeader || authHeader.substring(0, 7) !== "Bearer ") throw new Error("Invalid authorization header");
 		const encodedToken = authHeader.substring(7).trim();
@@ -38,7 +38,7 @@ export class JWTClient {
 		if (!(await this.isValidJwtSignature(token))) throw new Error("Invalid token signature");
 
 		return token;
-	};
+	}
 
 	/**
 	 * Parse and decode a JWT.
