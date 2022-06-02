@@ -31,7 +31,7 @@ type Auth0PayloadExtras<UserMetadataKey extends string> = {
 };
 
 export type Auth0Jwt<UserMetadataKey extends string> = RawJwt<Auth0PayloadExtras<UserMetadataKey>> & {
-	user_id_hashed: string;
+	user_id_hashed: () => Promise<string>;
 };
 
 export class Auth0JWTClient<UMK extends string> extends JWTClient {
@@ -53,7 +53,7 @@ export class Auth0JWTClient<UMK extends string> extends JWTClient {
 
 		// Add hashed user id to the token
 		if (token.payload[this.userMetadataKey]?.user_id === undefined) throw new Error("Token payload user_id is undefined");
-		token.user_id_hashed = await hash(token.payload[this.userMetadataKey].user_id);
+		token.user_id_hashed = async () => await hash(token.payload[this.userMetadataKey].user_id);
 
 		return token;
 	};
