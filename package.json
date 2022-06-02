@@ -1,7 +1,24 @@
 {
-	"devDependencies": {
-		"@types/jsonwebtoken": "^8.5.8",
-		"@cloudflare/workers-types": "^3.11.0",
-		"@types/node": "^17.0.38"
-	}
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8",
+    "@cloudflare/workers-types": "^3.11.0",
+    "@types/node": "^17.0.38"
+  },
+  "name": "@inrixia/cfworker-jwt",
+  "description": "Helper module for dealing with JWT's on cloudflare workers. Primarilty used for Auth0 authentication",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inrixia/CFWorker-JWT.git"
+  },
+  "author": "Inrixia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Inrixia/CFWorker-JWT/issues"
+  },
+  "homepage": "https://github.com/Inrixia/CFWorker-JWT#readme"
 }
